@@ -1,0 +1,74 @@
+1- Solution with a dot_product procedure:
+
+PROCEDURE dot_product(VAR p: FLOAT, n: INTEGER, v1: ARRAY_OF FLOAT, v2: ARRAY_OF FLOAT)
+VAR
+  i,j:INTEGER;
+BEGIN
+  FOR i FROM 0 TO n-1 DO
+  p:= p + v1[i]*v2[i];
+  END_FOR
+END
+
+ALGORITHM DOTPRODUCT
+VAR
+   v1,v2 : ARRAY_OF FLOAT[50];
+   n: INTEGER;
+   ps: FLOAT:=0;
+BEGIN
+   // Read the size
+   Read(n);
+   // Read vectors
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Read(v1[i]);
+   END_FOR
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Read(v2[i]);
+   END_FOR
+   // 
+   dot_product(ps, n, v1, v2);
+ 
+   IF (ps = 0)
+    WRITE("the two vectors are orthogonal");
+   ELSE
+    WRITE("the two vectors are not orthogonal");
+   END_IF
+
+END
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+2- Solution with a dot_product function:
+FUNCTION dot_product(n: INTEGER, v1: ARRAY_OF FLOAT, v2: ARRAY_OF FLOAT):FLOAT
+VAR
+  i,j:INTEGER;
+  P:FLOAT;
+BEGIN
+  FOR i FROM 0 TO n-1 DO
+  p:= p + v1[i]*v2[i];
+  END_FOR
+END
+
+ALGORITHM DOTPRODUCT
+VAR
+   v1,v2 : ARRAY_OF FLOAT[50];
+   n: INTEGER;
+   ps: FLOAT;
+BEGIN
+   // Read the size
+   Read(n);
+   // Read vectors
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Read(v1[i]);
+   END_FOR
+   FOR i FROM 0 TO n-1 STEP 1  DO
+       Read(v2[i]);
+   END_FOR
+   // 
+   ps:= dot_product(n, v1, v2);
+ 
+   IF (ps = 0)
+    WRITE("the two vectors are orthogonal");
+   ELSE
+    WRITE("the two vectors are not orthogonal");
+   END_IF
+
+END
